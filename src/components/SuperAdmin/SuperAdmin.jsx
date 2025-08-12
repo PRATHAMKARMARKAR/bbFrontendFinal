@@ -33,7 +33,7 @@ const SuperAdmin = () => {
         withCredentials: true,
         headers: { Authorization: `Bearer ${urlToken}` },
       });
-      console.log("All Users API response:", res.data.name);
+      console.log("All Users API response:", res.data);
       setUsers(parseUsers(res.data));
     } catch (err) {
       console.error("Error fetching users:", err);
