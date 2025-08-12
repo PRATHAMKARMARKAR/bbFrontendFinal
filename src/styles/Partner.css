@@ -1,0 +1,173 @@
+.globeimg{
+    /* margin-top: 10%; */
+    height: 100%;
+    width: 100%;
+    /* background-color: black; */
+    background-image: url("../assets/globe.svg");
+    background-size: cover;
+}
+
+.crossimg{
+    height: 50px;
+    width: 50px;
+    background-image: url("../assets/Cross.svg");
+    background-size: cover;
+}
+.mapimg{
+    height: 500px;
+    width: 500px;
+    background-image: url("../assets/Group\ 7.svg");
+    background-size: cover;
+    /* opacity: 0.8; */
+}
+.map{
+    height: 100%;
+    width: 100%;
+    background-image: url("../assets/Group7.svg");
+    background-size: 100% 100%;
+}
+.star{
+    height: 1091px;
+    width: 1000px;
+    background-image: url("../assets/WhatsApp\ Image\ 2025-03-21\ at\ 23.31.55_750aa326\ 1.png");
+    background-size: 100% 100%;
+}
+.p1
+{
+    height: 40px;
+    width: 40px;
+    background-image: url("../assets/partner1.png");
+    background-size: cover;
+}
+.p2
+{
+    height: 40px;
+    width: 40px;
+    background-image: url("../assets/Settings.svg");
+    background-size: cover;
+}
+.p3
+{
+    height: 40px;
+    width: 40px;
+    background-image: url("../assets/Suitcase.svg");
+    background-size: cover;
+}
+.star
+{
+    height: 40px;
+    width: 40px;
+    background-image: url("../assets/Rating.svg");
+    background-size: cover;
+}
+.Assitance
+{
+    height: 40px;
+    width: 40px;
+    background-image: url("../assets/Assistance.png");
+    background-size: cover;
+}
+.cop{
+    height: 50px;
+    width: 50px;
+    background-image: url("../assets/Chatbot.png");
+    background-size: cover;
+}
+@media screen and (max-width: 768px) {
+    
+    /* Adjust the layout */
+    .main {
+        /* Stack elements vertically */
+       
+    }
+
+    .left {
+        width: 0%;
+    }
+
+    .right {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Background images */
+    .globeimg {
+        height: 80%;
+        width: 80%;
+        background-size: contain;
+        background-position: center;
+    }
+
+    .crossimg {
+        height: 30px;
+        width: 30px;
+    }
+
+    .map {
+        height: 80%;
+        width: 100%;
+        background-size: contain;
+        background-position: center;
+    }
+
+    .mapimg {
+        height: 250px;
+        width: 250px;
+    }
+
+    .star {
+        height: auto;
+        width: 90%;
+        background-size: contain;
+        background-position: center;
+    }
+
+    /* Social Icons */
+    .googleimg, .fbimg, .bimg {
+        height: 16px;
+        width: 16px;
+    }
+
+    .cop {
+        height: 40px;
+        width: 40px;
+    }
+
+    /* Input Fields */
+    input {
+        width: 100%;
+        max-width: 90%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    /* Buttons */
+    button {
+        width: 100%;
+        max-width: 90%;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    /* Text Adjustments */
+    h1, h2 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    /* Social Login Buttons */
+    .otherlinks {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-button {
+        width: 100%;
+        max-width: 90%;
+        font-size: 14px;
+    }
+}

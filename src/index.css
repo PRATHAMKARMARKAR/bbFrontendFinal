@@ -1,0 +1,10 @@
+@import "tailwindcss";
+/* .bbimg{
+    background-image: url("./assets/Logo\ Baggage\ Bugs.svg");
+    background-size: cover;
+} */
+input:focus {
+  outline: none;
+  border-color: #63C5DA !important; /* Keeps the border color the same */
+  box-shadow: none; /* Removes any focus shadow (ring) */
+}

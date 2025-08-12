@@ -1,0 +1,85 @@
+.page {
+  font-family: "Urbanist", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.logo-bag {
+  background-image: url("/LogoBag.svg"); /* Directly from the public folder */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 40px;
+}
+.logo {
+  background-image: url("/Logo.svg"); /* Directly from the public folder */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 200px;
+}
+.section-1-left {
+  background-image: url("/LPglobe.svg"); /* Directly from the public folder */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.luggage-man {
+  background-image: url("/LuggageMan.svg"); /* Directly from the public folder */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 600px;
+  width: 600px;
+}
+.suitcase {
+  background-image: url("/Suitcase.svg"); /* Directly from the public folder */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 437px;
+  height: 720px;
+}
+.luggage {
+  background-image: url("/luggage.svg"); /* Directly from the public folder */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 350px;
+  height: 600px;
+}
+.map-image {
+  background-image: url("/MapImage.svg"); /* Directly from the public folder */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 1200px;
+  height: 720px;
+}
+.luggage-onboarding {
+  background-image: url("../assets/suitcasewithstickers.svg"); /* Directly from the public folder */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 550px;
+}
+/* .tower{
+  background-image: url("/Tower.svg"); 
+  background-size: 100% 100%; 
+    background-repeat: no-repeat;
+  width: 366px;
+  height: 246px;
+} */
+.page1{
+  overflow-x: hidden;
+}
+
+.left1{
+  z-index: 1;
+  height: 75vh;
+  width: 76vh;
+  background-image: url("../assets/yellowlargetravelbackpack.svg");
+  background-size: cover;
+}
+
+.right1 {
+  height: 80vh;
+  width: 140vh;
+  border: 2px solid #fa8128;
+  border-radius: 50%;
+}

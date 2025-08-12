@@ -1,0 +1,54 @@
+.cal {
+  height: 30px;
+  width: 30px;
+  background-image: url("../assets/Calendar.svg");
+  background-size: cover;
+}
+.react-calendar {
+  width: 350px;
+  max-width: 100%;
+  background-color: #fff;
+  border: 1px solid #63c5da;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-size: 1.1rem;
+}
+
+.react-calendar__tile {
+  padding: 1rem 0.5rem;
+}
+
+.react-calendar__month-view__weekdays {
+  font-weight: bold;
+  color: #fa8128;
+}
+
+input {
+  font-size: 0.9rem;
+}
+
+.left {
+  /* border: #63C5DA 2px solid; */
+  height: 47px;
+  width: 50px;
+  background-image: url("../assets/happysuitcase.svg");
+  background-size: cover;
+}
+.right {
+  height: 47px;
+  width: 100px;
+  background-color: #fa8128;
+}
+.uparrow {
+  height: 30px;
+  width: 30px;
+  background-image: url(../assets/BackArrow.svg);
+  background-size: cover;
+}
+.downarrow {
+  height: 30px;
+  width: 30px;
+  background-image: url(../assets/BackArrow1.svg);
+  background-size: cover;
+}
+ 

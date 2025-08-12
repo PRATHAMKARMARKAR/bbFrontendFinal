@@ -1,0 +1,46 @@
+.page-details {
+  font-family: "Urbanist", sans-serif;
+
+  font-weight: 400;
+  font-style: normal;
+}
+input:focus {
+  outline: none;
+  border-color: #63C5DA !important; /* Keeps the border color the same */
+  box-shadow: none; /* Removes any focus shadow (ring) */
+}
+
+@media (max-width: 768px) {
+  .details-div > .row-1,
+  .details-div > .row-2,
+  .details-div > .row-3,
+  .details-div > .row-4,
+  .details-div > .row-5,
+  .details-div > .row-6,
+  .details-div > .row-7 {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px;
+  }
+
+  .details-div input,
+  .details-div select {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .details-div .edit,
+  .details-div .content-edit {
+    text-align: left !important;
+    margin-top: 5px;
+  }
+
+  .details-div .row-7 > div:nth-child(2) {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .details-div .row-7 button {
+    width: 100%;
+  }
+}
