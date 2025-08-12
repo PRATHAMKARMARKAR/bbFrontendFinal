@@ -9,8 +9,9 @@ const SuperAdmin = () => {
   const [users, setUsers] = useState([]);
   const [searchName, setSearchName] = useState("");
   const navigate = useNavigate();
-  const urlToken = new URLSearchParams(window.location.search).get("token");
-  const token = localStorage.getItem("token") || "";
+  const urlToken = new URLSearchParams(window.location.search).get("token"); 
+  const urlRole = new URLSearchParams(window.location.search).get("role");
+  // const token = localStorage.getItem("token") || "";
   const isLoggedIn = Boolean(token);
 
   // Parse API response into a clean array
@@ -99,12 +100,12 @@ const SuperAdmin = () => {
       </div>
 
       {/* Toggle Button */}
-      {/* <div className="flex justify-end pr-10">
+      <div className="flex justify-end pr-10">
         <button
           onClick={() => {
             setViewType((prev) => {
               const newType = prev === "User" ? "Partner" : "User";
-              navigate(newType === "Partner" ? "/superAdminpartner" : "/superAdmin");
+              navigate(newType === "Partner" ? `/superAdminpartner?token=${urlToken}&role=${urlRole}` : `/superAdmin?token=${urlToken}&role=${urlRole}`);
               return newType;
             });
           }}
@@ -112,7 +113,7 @@ const SuperAdmin = () => {
         >
           {viewType}
         </button>
-      </div> */}
+      </div>
 
       {/* Search */}
       <div className="top-div w-full flex flex-col lg:flex-row flex-wrap gap-4 items-start lg:items-center justify-between p-4 pl-10 pr-10">
