@@ -10,7 +10,6 @@ const SuperAdmin = () => {
   const [searchName, setSearchName] = useState("");
   const navigate = useNavigate();
   const urlToken = new URLSearchParams(window.location.search).get("token");
-  const urlRole = new URLSearchParams(window.location.search).get("role");
   const token = localStorage.getItem("token") || "";
   const isLoggedIn = Boolean(token);
 
@@ -36,7 +35,7 @@ const SuperAdmin = () => {
       });
       console.log("All Users API response:", res.data);
       console.log("First user name:", res.data.statusCode[0]?.name);
-      setUsers(res.data.statusCode || []);
+       setUsers(res.data.statusCode || []);
     } catch (err) {
       console.error("Error fetching users:", err);
     }
@@ -87,20 +86,20 @@ const SuperAdmin = () => {
             </div>
           </div>
           <div className="burger p-2">
-            <GiHamburgerMenu
+            {/* <GiHamburgerMenu
               size={35}
               color="#FA8128"
-              onClick={() => {
-                navigate(isLoggedIn ? `/partneroverviewtoken=${token}&role=${urlRole}`: "/");
-              }}
+              // onClick={() => {
+              //   // navigate(isLoggedIn ? "/partneroverview" : "/");
+              // }}
               className="cursor-pointer"
-            />
+            /> */}
           </div>
         </div>
       </div>
 
       {/* Toggle Button */}
-      <div className="flex justify-end pr-10">
+      {/* <div className="flex justify-end pr-10">
         <button
           onClick={() => {
             setViewType((prev) => {
@@ -113,7 +112,7 @@ const SuperAdmin = () => {
         >
           {viewType}
         </button>
-      </div>
+      </div> */}
 
       {/* Search */}
       <div className="top-div w-full flex flex-col lg:flex-row flex-wrap gap-4 items-start lg:items-center justify-between p-4 pl-10 pr-10">
