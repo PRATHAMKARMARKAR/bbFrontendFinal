@@ -28,7 +28,9 @@ console.log(urlToken);
           Authorization: `Bearer ${urlToken}`,
         },
       });
-      setUsers(res.data); // adjust if API response is nested
+      setUsers(res.data);
+      console.log(res.data);
+       // adjust if API response is nested
     } catch (err) {
       console.error("Error fetching users:", err);
     }
