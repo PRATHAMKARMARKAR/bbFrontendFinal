@@ -34,6 +34,7 @@ const SuperAdmin = () => {
         headers: { Authorization: `Bearer ${urlToken}` },
       });
       console.log("All Users API response:", res.data);
+      console.log("First user name:", res.data.statusCode[0]?.name);
       setUsers(parseUsers(res.data));
     } catch (err) {
       console.error("Error fetching users:", err);
