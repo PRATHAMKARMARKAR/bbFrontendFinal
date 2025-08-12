@@ -35,7 +35,7 @@ const SuperAdmin = () => {
       });
       console.log("All Users API response:", res.data);
       console.log("First user name:", res.data.statusCode[0]?.name);
-      setUsers(parseUsers(res.data));
+      setUsers(res.data.statusCode || []);
     } catch (err) {
       console.error("Error fetching users:", err);
     }
