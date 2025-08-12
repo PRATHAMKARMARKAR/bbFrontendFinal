@@ -62,7 +62,8 @@ const SuperAdmin = () => {
   useEffect(() => {
     fetchAllUsers();
   }, []);
-
+  console.log(users.name);
+  
   return (
     <div className="page p-2 pl-15 pr-15">
       {/* Navbar */}
