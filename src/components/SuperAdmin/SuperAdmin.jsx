@@ -47,7 +47,7 @@ console.log(urlToken);
           params: { name: searchName },
           withCredentials: true,
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${urlToken}`,
           },
         }
       );
