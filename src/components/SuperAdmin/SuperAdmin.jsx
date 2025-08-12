@@ -11,7 +11,7 @@ const SuperAdmin = () => {
   const navigate = useNavigate();
   const urlToken = new URLSearchParams(window.location.search).get("token"); 
   const urlRole = new URLSearchParams(window.location.search).get("role");
-  // const token = localStorage.getItem("token") || "";
+  const token = localStorage.getItem("token") || "";
   const isLoggedIn = Boolean(token);
 
   // Parse API response into a clean array
@@ -105,7 +105,7 @@ const SuperAdmin = () => {
           onClick={() => {
             setViewType((prev) => {
               const newType = prev === "User" ? "Partner" : "User";
-              // navigate(newType === "Partner" ? `/superAdminpartner?token=${urlToken}&role=${urlRole}` : `/superAdmin?token=${urlToken}&role=${urlRole}`);
+              navigate(newType === "Partner" ? `/superAdminpartner?token=${urlToken}&role=${urlRole}` : `/superAdmin?token=${urlToken}&role=${urlRole}`);
               return newType;
             });
           }}
