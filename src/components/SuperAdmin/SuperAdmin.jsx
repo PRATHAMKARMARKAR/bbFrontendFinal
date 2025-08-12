@@ -105,7 +105,7 @@ const SuperAdmin = () => {
           onClick={() => {
             setViewType((prev) => {
               const newType = prev === "User" ? "Partner" : "User";
-              navigate(newType === "Partner" ? `/superAdminpartner?token=${urlToken}&role=${urlRole}` : `/superAdmin?token=${urlToken}&role=${urlRole}`);
+              // navigate(newType === "Partner" ? `/superAdminpartner?token=${urlToken}&role=${urlRole}` : `/superAdmin?token=${urlToken}&role=${urlRole}`);
               return newType;
             });
           }}
