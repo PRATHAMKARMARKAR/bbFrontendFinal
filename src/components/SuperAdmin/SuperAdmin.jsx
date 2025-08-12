@@ -33,7 +33,7 @@ const SuperAdmin = () => {
         withCredentials: true,
         headers: { Authorization: `Bearer ${urlToken}` },
       });
-      console.log("All Users API response:", res.data);
+      console.log("All Users API response:", res.name);
       setUsers(parseUsers(res.data));
     } catch (err) {
       console.error("Error fetching users:", err);
@@ -62,7 +62,7 @@ const SuperAdmin = () => {
   useEffect(() => {
     fetchAllUsers();
   }, []);
-  console.log(users.name);
+  // console.log(users.name);
   
   return (
     <div className="page p-2 pl-15 pr-15">
