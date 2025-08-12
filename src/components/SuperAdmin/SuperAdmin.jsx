@@ -9,11 +9,10 @@ const SuperAdmin = () => {
   const [users, setUsers] = useState([]);
   const [searchName, setSearchName] = useState("");
   const navigate = useNavigate();
-const urlToken = new URLSearchParams(window.location.search).get("token");
-  // ✅ Replace with real auth logic
+  const urlToken = new URLSearchParams(window.location.search).get("token");
+
   const token = localStorage.getItem("token") || "";
   const isLoggedIn = Boolean(token);
-console.log(urlToken);
 
   // Fetch all users on page load
   useEffect(() => {
@@ -28,9 +27,9 @@ console.log(urlToken);
           Authorization: `Bearer ${urlToken}`,
         },
       });
+      // API directly returns an array, not nested
       setUsers(res.data);
-      console.log(res.data);
-       // adjust if API response is nested
+      console.log("All Users:", res.data);
     } catch (err) {
       console.error("Error fetching users:", err);
     }
@@ -39,22 +38,17 @@ console.log(urlToken);
   const fetchUsersByName = async () => {
     try {
       if (!searchName.trim()) {
-        fetchAllUsers(); // if search is empty, show all users
+        fetchAllUsers();
         return;
       }
-
-      const res = await axios.get(
-        `${ProductionApi}/admin/usersByName`,
-        {
-          params: { name: searchName },
-          withCredentials: true,
-          headers: {
-            Authorization: `Bearer ${urlToken}`,
-          },
-        }
-      );
-
-      setUsers(res.data); // adjust if API response is nested
+      const res = await axios.get(`${ProductionApi}/admin/usersByName`, {
+        params: { name: searchName },
+        withCredentials: true,
+        headers: {
+          Authorization: `Bearer ${urlToken}`,
+        },
+      });
+      setUsers(res.data);
     } catch (err) {
       console.error("Error fetching user by name:", err);
     }
@@ -97,7 +91,7 @@ console.log(urlToken);
         </div>
       </div>
 
-      {/* Toggle Button for User / Partner */}
+      {/* Toggle Button */}
       <div className="flex justify-end pr-10">
         <button
           onClick={() => {
@@ -117,7 +111,7 @@ console.log(urlToken);
         </button>
       </div>
 
-      {/* Search + Filters */}
+      {/* Search */}
       <div className="top-div w-full flex flex-col lg:flex-row flex-wrap gap-4 items-start lg:items-center justify-between p-4 pl-10 pr-10">
         <div className="text-div font-bold">
           <div className="text-div-1 text-[#FA8128] text-4xl sm:text-5xl mb-2">
@@ -132,7 +126,7 @@ console.log(urlToken);
               value={searchName}
               onChange={(e) => setSearchName(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && fetchUsersByName()}
-              placeholder="Search by reference"
+              placeholder="Search by name"
               className="flex-grow bg-transparent outline-none text-[16px] sm:text-[18px] md:text-[20px]"
             />
             <img
@@ -170,27 +164,27 @@ console.log(urlToken);
             <p className="text-[#FA8128] font-bold">Full Name</p>
           </div>
           <div className="flex-1 text-center">
-            <p className="text-[#FA8128] font-bold">Partner ID</p>
+            <p className="text-[#FA8128] font-bold">Email</p>
           </div>
           <div className="flex-1 text-right">
-            <p className="text-[#FA8128] font-bold">Facility Name</p>
+            <p className="text-[#FA8128] font-bold">First Name</p>
           </div>
         </div>
 
         {users.length > 0 ? (
-          users.map((user, index) => (
+          users.map((user) => (
             <div
-              key={index}
+              key={user._id}
               className="flex justify-between w-full items-center"
             >
               <div className="flex-1">
-                <p>{user.fullName}</p>
+                <p>{user.name || "-"}</p>
               </div>
               <div className="flex-1 text-center">
-                <p>{user.partnerId}</p>
+                <p>{user.email || "-"}</p>
               </div>
               <div className="flex-1 text-right">
-                <p>{user.facilityName}</p>
+                <p>{user.firstName || "-"}</p>
               </div>
             </div>
           ))
