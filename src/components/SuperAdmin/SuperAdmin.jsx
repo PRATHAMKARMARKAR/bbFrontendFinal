@@ -10,6 +10,7 @@ const SuperAdmin = () => {
   const [searchName, setSearchName] = useState("");
   const navigate = useNavigate();
   const urlToken = new URLSearchParams(window.location.search).get("token");
+  const urlRole = new URLSearchParams(window.location.search).get("role");
   const token = localStorage.getItem("token") || "";
   const isLoggedIn = Boolean(token);
 
@@ -90,7 +91,7 @@ const SuperAdmin = () => {
               size={35}
               color="#FA8128"
               onClick={() => {
-                navigate(isLoggedIn ? "/partneroverview" : "/");
+                navigate(isLoggedIn ? `/partneroverviewtoken=${token}&role=${urlRole}`: "/");
               }}
               className="cursor-pointer"
             />
