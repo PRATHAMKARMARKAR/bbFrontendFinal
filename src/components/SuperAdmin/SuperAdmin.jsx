@@ -10,41 +10,37 @@ const SuperAdmin = () => {
   const [searchName, setSearchName] = useState("");
   const navigate = useNavigate();
   const urlToken = new URLSearchParams(window.location.search).get("token");
-
   const token = localStorage.getItem("token") || "";
   const isLoggedIn = Boolean(token);
 
-  // Fetch all users on page load
-  useEffect(() => {
-    fetchAllUsers();
-  }, []);
-
+  // Parse API response into a clean array
   const parseUsers = (data) => {
     if (Array.isArray(data)) {
-      return data; // already an array
+      return data;
     }
-    // convert object-with-numeric-keys into array
-    return Object.values(data).filter(
-      (item) => typeof item === "object" && item._id
-    );
+    if (typeof data === "object" && data !== null) {
+      return Object.values(data).filter(
+        (item) => typeof item === "object" && item._id
+      );
+    }
+    return [];
   };
 
+  // Fetch all users
   const fetchAllUsers = async () => {
     try {
       const res = await axios.get(`${ProductionApi}/admin/users`, {
         withCredentials: true,
-        headers: {
-          Authorization: `Bearer ${urlToken}`,
-        },
+        headers: { Authorization: `Bearer ${urlToken}` },
       });
-      const parsed = parseUsers(res.data);
-      setUsers(parsed);
-      console.log("All Users:", res.data);
+      console.log("All Users API response:", res.data);
+      setUsers(parseUsers(res.data));
     } catch (err) {
       console.error("Error fetching users:", err);
     }
   };
 
+  // Fetch users by name
   const fetchUsersByName = async () => {
     try {
       if (!searchName.trim()) {
@@ -54,17 +50,18 @@ const SuperAdmin = () => {
       const res = await axios.get(`${ProductionApi}/admin/usersByName`, {
         params: { name: searchName },
         withCredentials: true,
-        headers: {
-          Authorization: `Bearer ${urlToken}`,
-        },
+        headers: { Authorization: `Bearer ${urlToken}` },
       });
-      const parsed = parseUsers(res.data);
-      setUsers(parsed);
-      console.log("Searched Users:", parsed);
+      console.log("Search Users API response:", res.data);
+      setUsers(parseUsers(res.data));
     } catch (err) {
       console.error("Error fetching user by name:", err);
     }
   };
+
+  useEffect(() => {
+    fetchAllUsers();
+  }, []);
 
   return (
     <div className="page p-2 pl-15 pr-15">
@@ -91,11 +88,7 @@ const SuperAdmin = () => {
               size={35}
               color="#FA8128"
               onClick={() => {
-                if (isLoggedIn) {
-                  navigate("/partneroverview");
-                } else {
-                  navigate("/");
-                }
+                navigate(isLoggedIn ? "/partneroverview" : "/");
               }}
               className="cursor-pointer"
             />
@@ -109,11 +102,7 @@ const SuperAdmin = () => {
           onClick={() => {
             setViewType((prev) => {
               const newType = prev === "User" ? "Partner" : "User";
-              if (newType === "Partner") {
-                navigate("/superAdminpartner");
-              } else {
-                navigate("/superAdmin");
-              }
+              navigate(newType === "Partner" ? "/superAdminpartner" : "/superAdmin");
               return newType;
             });
           }}
