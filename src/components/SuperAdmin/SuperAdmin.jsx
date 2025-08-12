@@ -39,7 +39,7 @@ const SuperAdmin = () => {
       });
       const parsed = parseUsers(res.data);
       setUsers(parsed);
-      console.log("All Users:", parsed);
+      console.log("All Users:", res.data);
     } catch (err) {
       console.error("Error fetching users:", err);
     }
