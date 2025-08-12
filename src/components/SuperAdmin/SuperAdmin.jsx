@@ -19,6 +19,16 @@ const SuperAdmin = () => {
     fetchAllUsers();
   }, []);
 
+  const parseUsers = (data) => {
+    if (Array.isArray(data)) {
+      return data; // already an array
+    }
+    // convert object-with-numeric-keys into array
+    return Object.values(data).filter(
+      (item) => typeof item === "object" && item._id
+    );
+  };
+
   const fetchAllUsers = async () => {
     try {
       const res = await axios.get(`${ProductionApi}/admin/users`, {
@@ -27,9 +37,9 @@ const SuperAdmin = () => {
           Authorization: `Bearer ${urlToken}`,
         },
       });
-      // API directly returns an array, not nested
-      setUsers(res.data);
-      console.log("All Users:", res.data);
+      const parsed = parseUsers(res.data);
+      setUsers(parsed);
+      console.log("All Users:", parsed);
     } catch (err) {
       console.error("Error fetching users:", err);
     }
@@ -48,7 +58,9 @@ const SuperAdmin = () => {
           Authorization: `Bearer ${urlToken}`,
         },
       });
-      setUsers(res.data);
+      const parsed = parseUsers(res.data);
+      setUsers(parsed);
+      console.log("Searched Users:", parsed);
     } catch (err) {
       console.error("Error fetching user by name:", err);
     }
